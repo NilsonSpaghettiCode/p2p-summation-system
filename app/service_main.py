@@ -4,5 +4,5 @@ app = Flask(__name__)
 
 
 def start(ip:str, port:int):
-    print('Running....')
+    print('Running...')
     app.run(ip, port, debug=True)

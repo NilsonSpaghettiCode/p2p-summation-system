@@ -1,11 +1,26 @@
 '''
 Archivo main
+------------
+Este archivo contiene el inicio de la aplicacion nodo
 '''
 from app.service_main import start as run
 from config.config import config as cfg
+from config.funciones_config import generar_hash_nodo
 
 def main():
-    run(cfg['ip_address'], cfg['port'])
+    '''
+    Funcion main que ejecuta todo el funcionamiento del todo
+    cargando primero el archivo de configuracion y estableciendo
+    los valores iniciales del nodo
+    '''
+    ip= cfg['ip_address']
+    port = cfg['port']
+    nodos_conocidos = cfg['nodos_conocidos']
+    nombre_nodo = cfg['nombre_nodo']
+    
+    hash_nodo = generar_hash_nodo(nombre_nodo, ip)
+    
+    run(ip, port, nodos_conocidos, nombre_nodo, hash_nodo)
 
 
 if __name__ == '__main__':

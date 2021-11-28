@@ -56,4 +56,8 @@ def start(ip:str, port:int, lista_nodos_vecinos:list, nombre, nodo_hash):
     '''
     establecer_nodo(lista_nodos_vecinos,  ip, nombre, nodo_hash)
     print('Running...')
+    print('-'*100)
+    print(nodo)
+    print('-'*100)
     app.run(ip, port, debug=True)
+   

@@ -1,6 +1,10 @@
-from flask import Flask
-from .Nodo import Nodo
 
+from flask import Flask
+from flask.json import jsonify
+from requests.api import request
+from requests.sessions import Request
+from .Nodo import Nodo
+from .Controlador import Controlador
 app = Flask(__name__)
 nodo = Nodo()
 
@@ -11,7 +15,7 @@ def informacion_nodo():
     '''
     Implementar servicio
     '''
-    pass
+    return jsonify(nodo.__dict__)
 
 @app.route('/suma_de_red', methods=['GET'])
 def sumar_red():
@@ -26,7 +30,8 @@ def anadir_numero():
     '''
     Implementar servicio
     '''
-    pass
+    numero = request.form['numero']
+    return numero
 
 # <--------------------------- Funciones aplicacion --------------------------->
 

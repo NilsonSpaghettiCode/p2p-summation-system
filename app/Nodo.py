@@ -1,5 +1,5 @@
 '''
-Clase nodo
+Clase Nodo
 ----------
 Este modulo contiene toda la informacion requerida para cada nodo
 del sistema de iguales a iguales (peer to peer)

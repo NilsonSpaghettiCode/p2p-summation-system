@@ -4,6 +4,8 @@ from .Nodo import Nodo
 app = Flask(__name__)
 nodo = Nodo()
 
+# <--------------------------- Servicios publicados --------------------------->
+
 @app.route('/')
 def informacion_nodo():
     '''
@@ -25,10 +27,13 @@ def anadir_numero():
     Implementar servicio
     '''
     pass
+
+# <--------------------------- Funciones aplicacion --------------------------->
+
 def establecer_nodo(lista_nodos_vecinos,  ip, nombre, nodo_hash):
     '''
-    
     Esta funcion establece los parametros para iniciar el nodo
+
     :param name:
     :type name:
     :param name:

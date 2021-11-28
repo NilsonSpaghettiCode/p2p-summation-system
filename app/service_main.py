@@ -1,12 +1,12 @@
 
-from flask import Flask
+from flask import Flask, request
 from flask.json import jsonify
-from requests.api import request
-from requests.sessions import Request
+from werkzeug.exceptions import BadRequestKeyError
 from .Nodo import Nodo
 from .Controlador import Controlador
 app = Flask(__name__)
 nodo = Nodo()
+controlador = Controlador()
 
 # <--------------------------- Servicios publicados --------------------------->
 
@@ -25,13 +25,19 @@ def sumar_red():
     '''
     pass
 
-@app.route('/guardar_numero', methods=['POST'])
+@app.route('/guardarnumero', methods=['POST'])
 def anadir_numero():
     '''
     Implementar servicio
+    //print(request)
     '''
-    numero = request.form['numero']
-    return numero
+    respuesta = {}
+    try:
+        numero = request.form['numero']
+        respuesta = controlador.insertar_numero(nodo,numero)
+    except BadRequestKeyError as e:
+        respuesta = {'Error': True, 'TypeError':'Parametro numero necesario'}
+    return jsonify(respuesta)
 
 # <--------------------------- Funciones aplicacion --------------------------->
 

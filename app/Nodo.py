@@ -10,9 +10,9 @@ class Nodo:
     del nodo especifico y guarda los datos necesarios para
     realizar la suma
     '''
-    estado:int = 0
     
-    def __init__(self, direccion_ip:str='0.0.0.0', nombre:str = 'nodo-default', identificador_hash:str ='', lista_numeros:list = [], lista_nodos_vecinos:list = []):
+    
+    def __init__(self, direccion_ip:str='0.0.0.0', nombre:str = 'nodo-default', identificador_hash:str ='', lista_numeros:list = [], lista_nodos_vecinos:list = [], estado:int=0):
         '''
         Constructor de la clase nodo
 
@@ -27,11 +27,12 @@ class Nodo:
         :param lista_nodos_vecinos: la lista de nodos que hacen de vecinos del nodo instanciado en la aplicación
         :type lista_nodos_vecinos: list
         '''
-        self.direccion_ip = direccion_ip
         self.nombre = nombre
-        self.lista_numeros = lista_numeros 
+        self.direccion_ip = direccion_ip
         self.identificador_hash = identificador_hash
+        self.lista_numeros = lista_numeros 
         self.lista_nodos_vecinos = lista_nodos_vecinos
+        self.estado=1
     
     def __str__(self):
         '''

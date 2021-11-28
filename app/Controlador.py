@@ -12,10 +12,11 @@ class Controlador:
         pass
 
     def insertar_numero(self, nodo:Nodo, numero):
-        if(self.es_numero(numero)):
-            nodo.insertar_numero(numero)
+        try:
+            nodo.insertar_numero(int(numero))
             return self.establecer_respuesta(True, contenido=[numero])
-        return self.establecer_respuesta(contenido=[numero]) 
+        except Exception as e:
+            return self.establecer_respuesta(contenido=[numero]) 
     
     def establecer_respuesta(self,estado=False,contenido=[]):
         respuesta_formato = {
@@ -24,10 +25,3 @@ class Controlador:
         }
         return respuesta_formato
         
-
-    def es_numero(self, numero):
-
-        if type(numero) == int:
-            return True
-            
-        return False

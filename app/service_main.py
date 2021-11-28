@@ -3,12 +3,22 @@ app = Flask(__name__)
 
 @app.route('/')
 def informacion_nodo():
+    '''
+    Implementar servicio
+    '''
     pass
-@app.route('suma_de_red', methods=['GET'])
+@app.route('/suma_de_red', methods=['GET'])
 def sumar_red():
+
+    '''
+    Implementar servicio
+    '''
     pass
-@app.route('guardar_numero', methods=['POST'])
+@app.route('/guardar_numero', methods=['POST'])
 def anadir_numero():
+    '''
+    Implementar servicio
+    '''
     pass
 
 

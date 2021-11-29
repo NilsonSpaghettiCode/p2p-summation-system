@@ -5,28 +5,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIUUUUUUUUUUUUU</title>
+    <title>Placeholder</title>
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body class="body">
+    
 
-    <div class="px-2">
-        <div class="flex -mx-2">
-            <div class="w-1/1 px-2 bg-gray-100 content-center">
-                <form class="w-full max-w-lg">
+    <div class="flex mb-4 space-x-5">
+        <div class="w-1/2 h-12">
+            <div class="flex justify-end bg">
+                <form class="w-full max-w-lg bg-gray-100 pt-4 pr-4 pb-4 pl-4">
                     <div class="flex flex-wrap -mx-2 mb-6">
                         <div class="w-full md:w-1/1 px-2 mb-6 md:mb-0 text-center">
                             <br>
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                                Placeholder title Node
+                                Please, type the node's number you want to work with
                             </label>
                             <input
                                 class="hvr-bounce-out hvr-bounce-out:hover appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 content-center text-center"
-                                type="text" placeholder="Placeholder Node">
+                                type="text" placeholder="Node">
                         </div>
-
+    
                         <div class="w-full md:w-1/1 px-2 mb-6 md:mb-0 text-center">
                             <br>
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
@@ -34,74 +35,242 @@
                             </label>
                             <input
                                 class="hvr-bounce-out appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 content-center text-center"
-                                type="text" placeholder="Placeholder Number">
+                                type="text" placeholder="Number">
                         </div>
                     </div>
-
                     <div class="flex flex-wrap -mx-3 mb-6">
-
+    
                         <div class="w-full md:w-1/2 px-2 mb-6 md:mb-0 text-center">
                             <button
                                 class="hvr-grow bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 border-b-4 border-gray-700 hover:border-gray-500 rounded">
                                 Add Number
                             </button>
-
+    
                         </div>
-
+    
                         <div class="w-full md:w-1/2 px-2 mb-6 md:mb-0 text-center">
                             <button
                                 class="hvr-grow bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 border-b-4 border-gray-700 hover:border-gray-500 rounded">
                                 Sum node network
                             </button>
+    
+                        </div>
+    
+                    </div>
+                    <div
+                        class="w-full md:w-1/1 px-2 mb-6 md:mb-0 text-center bg-gray-300 border-t-4 border-gray-600 rounded-b text-teal-900 px-4 py-3 shadow-md">
+    
+                        <div class="block w-full">
+                            <div class="rounded-full py-3 px-6 bg-gray-400 font-bold border-2 border-gray-200">
+                                Current Results
+                            </div>
+    
+                            <table class="leading-normal w-full flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
+                                <tr class="sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+                                    <th
+                                        class="bg-gray-600 px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-100 uppercase tracking-wider text-center">
+                                        Node</th>
+                                    <th
+                                        class="bg-gray-600 px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-100 uppercase tracking-wider text-center">
+                                        Output</th>
+                                </tr>
+                                <tr class="sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+                                    <td
+                                        class="hover:bg-gray-200 px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        Sum Node 1</td>
+                                    <td
+                                        class="hover:bg-gray-200 px-5 py-5 border-b border-gray-100 bg-white text-sm">
+                                        999</td>
+                                </tr>
+                                <tr class="sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+                                    <td
+                                        class="hover:bg-gray-200 px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        Sum Node 2</td>
+                                    <td
+                                        class="hover:bg-gray-200 px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        999</td>
+                                </tr>
+                                <tr class="sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+                                    <td
+                                        class="hover:bg-gray-200 px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        Sum Node 3</td>
+                                    <td
+                                        class="hover:bg-gray-200 px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        999</td>
+                                </tr>
+                                <tr class="sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+                                    <td
+                                        class="hover:bg-gray-200 px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        Sum Node 4</td>
+                                    <td
+                                        class="hover:bg-gray-200 px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        999</td>
+                                </tr>
+                                <tr class="sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+                                    <td
+                                        class="hover:bg-gray-200 px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        Total Sum</td>
+                                    <td
+                                        class="hover:bg-gray-200 px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        999</td>
+                                </tr>
+                            </table>
+                        </div>
+                    
+                    </div>
+                </form>
+            </div>
+            
+        </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="w-1/2 h-12">
+            <div class="flex justify-start">
+            <form class="w-full max-w-lg bg-gray-100 pt-6 pr-6 pb-6 pl-6">
+                
+                <div class="flex flex-wrap -mx-3 mb-6">
+
+                    <div class="w-full md:w-1/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
+                        <svg class="w-6 h-6 md:w-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 17H2a2 2 0 0 1-2-2V2C0 .9.9 0 2 0h16a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2h-5l4 2v1H3v-1l4-2zM2 2v11h16V2H2z"/></svg>
+                    </div>
+
+                    <div class="w-full md:w-1/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
+                        <span class="flex rounded-full bg-green-400 uppercase px-2 py-1 text-xs font-bold mr-3">Active</span>
+                    </div>
+
+                    <div class="w-full md:w-3/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
+                        <button
+                            class="w-full hvr-grow bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 border-b-4 border-gray-700 hover:border-gray-500 rounded">
+                            Node 1
+                        </button>
+                    </div>
+                </div>
+                <div class="flex flex-wrap -mx-3 mb-6">
+
+                    <div class="w-full md:w-1/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
+                        <svg class="w-6 h-6 md:w-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 17H2a2 2 0 0 1-2-2V2C0 .9.9 0 2 0h16a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2h-5l4 2v1H3v-1l4-2zM2 2v11h16V2H2z"/></svg>
+                    </div>
+
+                    <div class="w-full md:w-1/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
+                        <span class="flex rounded-full bg-green-400 uppercase px-2 py-1 text-xs font-bold mr-3">Active</span>
+                    </div>
+
+                    <div class="w-full md:w-3/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
+                        <button
+                            class="w-full hvr-grow bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 border-b-4 border-gray-700 hover:border-gray-500 rounded">
+                            Node 2
+                        </button>
+                    </div>
+                </div>
+                <div class="flex flex-wrap -mx-3 mb-6">
+
+                    <div class="w-full md:w-1/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
+                        <svg class="w-6 h-6 md:w-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 17H2a2 2 0 0 1-2-2V2C0 .9.9 0 2 0h16a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2h-5l4 2v1H3v-1l4-2zM2 2v11h16V2H2z"/></svg>
+                    </div>
+
+                    <div class="w-full md:w-1/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
+                        <span class="flex rounded-full bg-green-400 uppercase px-2 py-1 text-xs font-bold mr-3">Active</span>
+                    </div>
+
+                    <div class="w-full md:w-3/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
+                        <button
+                            class="w-full hvr-grow bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 border-b-4 border-gray-700 hover:border-gray-500 rounded">
+                            Node 3
+                        </button>
+                    </div>
+                </div>
+                <div class="flex flex-wrap -mx-3 mb-6">
+
+                    <div class="w-full md:w-1/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
+                        <svg class="w-6 h-6 md:w-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 17H2a2 2 0 0 1-2-2V2C0 .9.9 0 2 0h16a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2h-5l4 2v1H3v-1l4-2zM2 2v11h16V2H2z"/></svg>
+                    </div>
+
+                    <div class="w-full md:w-1/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
+                        <span class="flex rounded-full bg-green-400 uppercase px-2 py-1 text-xs font-bold mr-3">Active</span>
+                    </div>
+
+                    <div class="w-full md:w-3/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
+                        <button
+                            class="w-full hvr-grow bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 border-b-4 border-gray-700 hover:border-gray-500 rounded">
+                            Node 4
+                        </button>
+                    </div>
+                </div>
+
+
+
+
+                <div
+                    class="w-full md:w-1/1 px-2 mb-6 md:mb-0 text-center bg-gray-300 border-t-4 border-gray-600 rounded-b text-teal-900 px-4 py-3 shadow-md">
+
+                    <div class="block w-full">
+                        <div class="rounded-full py-3 px-6 bg-gray-400 font-bold border-2 border-gray-200">
+                            Current Results
                         </div>
 
+                        
                     </div>
-
-                    <div class="w-full md:w-1/1 px-2 mb-6 md:mb-0 text-center bg-gray-300 border-t-4 border-gray-600 rounded-b text-teal-900 px-4 py-3 shadow-md">
-                        <div class="block w-full">
-                            <div class="">
-                                <div class="rounded-full py-3 px-6 bg-gray-400 font-bold border-2 border-gray-200">Current Results</div>
-                                <table class="w-full leading-normal w-full flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
-                                    
-                                    <tr class="sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
-                                        <th class="bg-gray-600 px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-100 uppercase tracking-wider text-center">Node</th>
-                                        <th class="bg-gray-600 px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-100 uppercase tracking-wider text-center">Output</th>
-                                    </tr>
-
-                                    <tr class="sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
-                                        <td class="hover:bg-gray-200 px-5 py-5 border-b border-gray-200 bg-white text-sm">Sum Node 1</td>
-                                        <td class="hover:bg-gray-200 px-5 py-5 border-b border-gray-100 bg-white text-sm">999</td>
-                                    </tr>
-                                    <tr class="sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
-                                        <td class="hover:bg-gray-200 px-5 py-5 border-b border-gray-200 bg-white text-sm">Sum Node 2</td>
-                                        <td class="hover:bg-gray-200 px-5 py-5 border-b border-gray-200 bg-white text-sm">999</td>
-                                    </tr>
-                                    <tr class="sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
-                                        <td class="hover:bg-gray-200 px-5 py-5 border-b border-gray-200 bg-white text-sm">Sum Node 3</td>
-                                        <td class="hover:bg-gray-200 px-5 py-5 border-b border-gray-200 bg-white text-sm">999</td>
-                                    </tr>
-                                    <tr class="sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
-                                        <td class="hover:bg-gray-200 px-5 py-5 border-b border-gray-200 bg-white text-sm">Sum Node 4</td>
-                                        <td class="hover:bg-gray-200 px-5 py-5 border-b border-gray-200 bg-white text-sm">999</td>
-                                    </tr>
-                                    <tr class="sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
-                                        <td class="hover:bg-gray-200 px-5 py-5 border-b border-gray-200 bg-white text-sm">Total Sum</td>
-                                        <td class="hover:bg-gray-200 px-5 py-5 border-b border-gray-200 bg-white text-sm">999</td>
-                                    </tr>
-                    </div>
-
-                </form>
-
-            </div>
-
-            <div class="w-1/2 px-2">
+                
+                </div>
+            </form>
+        </div>
+            
 
 
-            </div>
+
 
         </div>
-    </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
 
 
 

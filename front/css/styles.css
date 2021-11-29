@@ -1,5 +1,4 @@
 
-
 .hvr-grow {
     display: inline-block;
     vertical-align: middle;
@@ -33,4 +32,7 @@
     transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
 }
 
-
+.txt-a
+{
+    resize: none;
+}

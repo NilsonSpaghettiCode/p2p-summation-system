@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body class="body">
+<body>
     
 
     <div class="flex mb-4 space-x-5">
         <div class="w-1/2 h-12">
             <div class="flex justify-end bg">
-                <form class="w-full max-w-lg bg-gray-100 pt-4 pr-4 pb-4 pl-4">
+                <form class="w-full max-w-lg bg-gray-100 pt-4 pr-4 pb-4 pl-4 rounded md:rounded-lg">
                     <div class="flex flex-wrap -mx-2 mb-6">
                         <div class="w-full md:w-1/1 px-2 mb-6 md:mb-0 text-center">
                             <br>
@@ -58,7 +58,7 @@
     
                     </div>
                     <div
-                        class="w-full md:w-1/1 px-2 mb-6 md:mb-0 text-center bg-gray-300 border-t-4 border-gray-600 rounded-b text-teal-900 px-4 py-3 shadow-md">
+                        class="w-full md:w-1/1 px-2 mb-6 md:mb-0 text-center bg-gray-300 border-t-4 border-gray-600 rounded md:rounded-lg text-teal-900 px-4 py-3 shadow-md">
     
                         <div class="block w-full">
                             <div class="rounded-full py-3 px-6 bg-gray-400 font-bold border-2 border-gray-200">
@@ -116,34 +116,15 @@
                                 </tr>
                             </table>
                         </div>
-                    
                     </div>
                 </form>
             </div>
-            
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
         <div class="w-1/2 h-12">
             <div class="flex justify-start">
-            <form class="w-full max-w-lg bg-gray-100 pt-6 pr-6 pb-6 pl-6">
+            <form class="w-full max-w-lg bg-gray-100 pt-6 pr-6 pb-10 pl-6">
                 
                 <div class="flex flex-wrap -mx-3 mb-6">
 
@@ -196,7 +177,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="flex flex-wrap -mx-3 mb-6 pb-1">
 
                     <div class="w-full md:w-1/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
                         <svg class="w-6 h-6 md:w-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 17H2a2 2 0 0 1-2-2V2C0 .9.9 0 2 0h16a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2h-5l4 2v1H3v-1l4-2zM2 2v11h16V2H2z"/></svg>
@@ -217,16 +198,52 @@
 
 
 
-                <div
-                    class="w-full md:w-1/1 px-2 mb-6 md:mb-0 text-center bg-gray-300 border-t-4 border-gray-600 rounded-b text-teal-900 px-4 py-3 shadow-md">
+                <div class="w-full md:w-1/1 px-2 mb-6 md:mb-0 text-center bg-gray-300 border-t-4 border-gray-600 rounded md:rounded-lg text-teal-900 px-4 py-3 shadow-md pb-10">
 
-                    <div class="block w-full">
+                    <div class="flex flex-wrap w-full justify-center">
                         <div class="rounded-full py-3 px-6 bg-gray-400 font-bold border-2 border-gray-200">
-                            Current Results
+                            Selected Node Content
+                        </div>
+                    </div>
+                    
+                    <br>
+
+                    <div class="w-full md:w-1/1 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center bg-green-200 pt-1 pr-4 pb-10 pl-4 rounded md:rounded-lg">
+                        <div class="w-full md:w-1/1 px-2 mb-6 md:mb-0 text-center">
+                            <br>
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                Node's numbers
+                            </label>
+                            <textarea class="txt-a appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-100 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 content-center text-center" cols="30" rows="3" type="text" placeholder="Node" readonly>1, 2, 3, 4, 5</textarea>
+                        </div>
+    
+                        <div class="w-full md:w-1/1 px-2 mb-6 md:mb-0 text-center">
+                            <br>
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                Node's current sum
+                            </label>
+                            <textarea class="txt-a appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-100 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 content-center text-center" cols="30" rows="0" type="text" placeholder="Node" readonly>999</textarea>
                         </div>
 
-                        
+
                     </div>
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 
                 </div>
             </form>

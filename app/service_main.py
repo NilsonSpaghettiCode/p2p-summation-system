@@ -1,3 +1,9 @@
+'''
+Servicios Nodo
+--------------
+Este modulo contiene los servicios que publica el nodo
+para el funcionamiento de la aplicacion
+'''
 
 from flask import Flask, request
 from flask.json import jsonify
@@ -17,15 +23,22 @@ def informacion_nodo():
     '''
     return jsonify(nodo.__dict__)
 
-@app.route('/suma_de_red', methods=['GET'])
+@app.route('/suma_de_red', methods=['POST'])
 def sumar_red():
 
     '''
     Implementar servicio
     '''
-    pass
+    
+    print("Entrada",request.json)
+    parametro = dict(request.json)
+    lista_vecinos_confirmados = list(parametro['nodos_sumados'])
+    origen = parametro['origen_peticion']
 
-@app.route('/guardarnumero', methods=['POST'])
+    respuesta = controlador.obtener_suma(nodo, lista_vecinos_confirmados,origen)
+    return respuesta
+
+@app.route('/guardar_numero', methods=['POST'])
 def anadir_numero():
     '''
     Implementar servicio
@@ -41,7 +54,7 @@ def anadir_numero():
 
 # <--------------------------- Funciones aplicacion --------------------------->
 
-def establecer_nodo(lista_nodos_vecinos,  ip, nombre, nodo_hash):
+def establecer_nodo(lista_nodos_vecinos,  ip, nombre, nodo_hash, port):
     '''
     Esta funcion establece los parametros para iniciar el nodo
 
@@ -58,8 +71,9 @@ def establecer_nodo(lista_nodos_vecinos,  ip, nombre, nodo_hash):
     nodo.direccion_ip = ip
     nodo.nombre = nombre
     nodo.identificador_hash = nodo_hash
+    nodo.puerto = port
 
-def start(ip:str, port:int, lista_nodos_vecinos:list, nombre, nodo_hash):
+def start(ip:str, port:int, lista_nodos_vecinos:list, nombre, nodo_hash, nuget):
     '''
     Función de inicio de aplicación (nodo)
     
@@ -70,10 +84,10 @@ def start(ip:str, port:int, lista_nodos_vecinos:list, nombre, nodo_hash):
     :param lista_nodos_vecinos: la lista de los nodos que conoce la aplicación
     :type lista_nodos_vecinos: list
     '''
-    establecer_nodo(lista_nodos_vecinos,  ip, nombre, nodo_hash)
+    establecer_nodo(lista_nodos_vecinos,  ip, nombre, nodo_hash,port)
     print('Running...')
     print('-'*100)
     print(nodo)
     print('-'*100)
-    app.run(ip, port, debug=True)
+    app.run(ip, port, debug=nuget)
    

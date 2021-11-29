@@ -6,6 +6,7 @@ los servicios de los demas nodos
 '''
 
 import requests
+import json
 class HttpSolicitud:
     '''
     La clase HttpSolicitud contiene los metodos necesarios para
@@ -16,15 +17,27 @@ class HttpSolicitud:
         Constructor de la clase HttpSolicitud
         '''
         pass
+    @staticmethod
+    def establecer_formato_diccionario(lista_nodos_solicitados:list = [], origen:str='0.0.0.0', puerto:int = 5200):
+        '''
+        Esta función le establece un formato a las peticiones realizadas al nodo
 
-    def establecer_formato_diccionario(self, lista_peticiones:list):
+        :param lista_nodos_solicitados: las peticiones realizadas al nodo
+        :type lista_nodos_solicitados: list
+        :param origen: la direccion de donde proviene
+        :type origen: str
+        :returns: retorna las peticiones realizadas teniendo en cuenta el origen
+        :rtype: dict
+        '''
+        
         data = {
-            'peticiones_realizadas':lista_peticiones, #[{'nombre': 'Nodo A', 'direccion': '127.0.0.1'}]
+            'nodos_sumados':lista_nodos_solicitados, #[{'nombre': 'Nodo A', 'direccion': '127.0.0.1'}]
+            'origen_peticion': f'{origen}:{puerto}'
             }
 
-        return data
-
-    def consumir_servicio(self, direccion_ip:str = '0.0.0.0', puerto:int=0, datos_solicitud:dict = {}):
+        return json.dumps(data)
+    @staticmethod
+    def consumir_servicio(direccion_ip:str = 'localhost', puerto:int=5200, datos_solicitud:dict = {}):
         '''
         Este metodo permite consumir un servicio publicado por otra aplicacion
 
@@ -35,12 +48,13 @@ class HttpSolicitud:
         :returns: los datos recibidos a manera de json
         :rtype: json
         '''
-        uri=f'{direccion_ip}:{puerto}'
+        uri=f'http://{direccion_ip}:{puerto}/suma_de_red'
+        print(uri)
         respuestaJSON = {}
         try:
-            datos_respuesta = requests.request(method='POST', url=uri, headers={},data=datos_solicitud)
+            datos_respuesta = requests.request(method='POST', url=uri, headers={'Content-Type': 'application/json'},data=datos_solicitud)
             respuestaJSON = datos_respuesta.json()
         except Exception as error:
-            print(error)
+            print("ERROR: ",error)
         
         return respuestaJSON

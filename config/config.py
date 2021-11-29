@@ -3,13 +3,43 @@ Archivo config
 --------------
 Este modulo contiene la configuración del nodo
 '''
-config = {
+config_numero = 0
+
+config_nodos= [{
     'nombre_nodo':'Nodo A',
-    'ip_address': '0.0.0.0',
+    'ip_address': 'localhost',
     'port':5200,
     'nodos_conocidos':[
-        {'nombre_nodo':'Nodo B', 'ip':'0.0.0.0', 'puerto':5200},
-        {'nombre_nodo':'Nodo C', 'ip':'0.0.0.0', 'puerto':5200},
-        {'nombre_nodo':'Nodo D', 'ip':'0.0.0.0', 'puerto':5200}
-    ]
-}
+        {'nombre_nodo':'Nodo B', 'ip':'localhost', 'puerto':5201}
+    ],
+    'debug':True
+    },
+    {
+    'nombre_nodo':'Nodo B',
+    'ip_address': 'localhost',
+    'port':5201,
+    'nodos_conocidos':[
+        {'nombre_nodo':'Nodo A', 'ip':'localhost', 'puerto':5200}
+    ],
+    'debug':False
+    },
+    
+    {
+    'nombre_nodo':'Nodo C',
+    'ip_address': 'localhost',
+    'port':5202,
+    'nodos_conocidos':[
+        {'nombre_nodo':'Nodo B', 'ip':'localhost', 'puerto':5200}
+    ],
+    'debug':False
+    },
+    {
+    'nombre_nodo':'Nodo D',
+    'ip_address': 'localhost',
+    'port':5203,
+    'nodos_conocidos':[
+        {'nombre_nodo':'Nodo B', 'ip':'localhost', 'puerto':5200}
+    ],
+    'debug':False
+    },
+]

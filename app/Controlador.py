@@ -24,4 +24,13 @@ class Controlador:
             'contenido':contenido
         }
         return respuesta_formato
+    
+    def obtener_suma(self, nodo:Nodo, lista_vecinos_confirmados=[], origen="192.168.0.1:4900"):
+        suma_nodo_actual = nodo.obtener_suma_red(lista_vecinos_confirmados, origen)
+        '''
+        suma_vecinos_nodo_actual = nodo
+        '''
+        respuesta = {'suma_total': suma_nodo_actual}
+        
+        return respuesta
         

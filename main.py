@@ -3,9 +3,9 @@ Archivo main
 ------------
 Este archivo contiene el inicio de la aplicacion nodo
 '''
-from app.service_main import start as run
-from config.config import config_nodos, config_numero
-from config.funciones_config import generar_hash_nodo
+from src.app.service_main import start as run
+from src.config.config import config_nodos, config_numero
+from src.config.funciones_config import generar_hash_nodo
 
 def main():
     '''

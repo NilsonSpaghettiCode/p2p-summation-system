@@ -4,9 +4,9 @@ Clase Nodo
 Este modulo contiene toda la informacion requerida para cada nodo
 del sistema de iguales a iguales (peer to peer)
 '''
-
 from .HttpSolicitud import HttpSolicitud 
-from ..config.funciones_config import obtener_tiempo, generar_hash_solicitud
+from ..config import funciones_config
+
 class Nodo:
     '''
     La clase nodo, es el objeto que describe la informacion
@@ -181,8 +181,8 @@ class Nodo:
         Este método crea el identificador de las solicitudes para
         definir un master    
         '''
-        tiempo = obtener_tiempo()
-        identificador = generar_hash_solicitud(self.nombre, self.direccion_ip, tiempo)
+        tiempo = funciones_config.obtener_tiempo()
+        identificador = funciones_config.generar_hash_solicitud(self.nombre, self.direccion_ip, tiempo)
 
         return identificador
 

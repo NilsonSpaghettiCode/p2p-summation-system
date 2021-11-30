@@ -3,14 +3,15 @@ Archivo config
 --------------
 Este modulo contiene la configuración del nodo
 '''
-config_numero = 0
+config_numero = 3
 
 config_nodos= [{
     'nombre_nodo':'Nodo A',
     'ip_address': 'localhost',
     'port':5200,
     'nodos_conocidos':[
-        {'nombre_nodo':'Nodo B', 'ip':'localhost', 'puerto':5201}
+        {'nombre_nodo':'Nodo B', 'ip':'localhost', 'puerto':5201},
+        {'nombre_nodo':'Nodo C', 'ip':'localhost', 'puerto':5202}
     ],
     'debug':True
     },
@@ -19,7 +20,9 @@ config_nodos= [{
     'ip_address': 'localhost',
     'port':5201,
     'nodos_conocidos':[
-        {'nombre_nodo':'Nodo A', 'ip':'localhost', 'puerto':5200}
+        {'nombre_nodo':'Nodo A', 'ip':'localhost', 'puerto':5200},
+        {'nombre_nodo':'Nodo C', 'ip':'localhost', 'puerto':5202},
+        {'nombre_nodo':'Nodo D', 'ip':'localhost', 'puerto':5203}
     ],
     'debug':False
     },
@@ -29,7 +32,9 @@ config_nodos= [{
     'ip_address': 'localhost',
     'port':5202,
     'nodos_conocidos':[
-        {'nombre_nodo':'Nodo B', 'ip':'localhost', 'puerto':5200}
+        {'nombre_nodo':'Nodo B', 'ip':'localhost', 'puerto':5201},
+        {'nombre_nodo':'Nodo A', 'ip':'localhost', 'puerto':5200},
+        {'nombre_nodo':'Nodo D', 'ip':'localhost', 'puerto':5203}
     ],
     'debug':False
     },
@@ -38,7 +43,8 @@ config_nodos= [{
     'ip_address': 'localhost',
     'port':5203,
     'nodos_conocidos':[
-        {'nombre_nodo':'Nodo B', 'ip':'localhost', 'puerto':5200}
+        {'nombre_nodo':'Nodo B', 'ip':'localhost', 'puerto':5201},
+        {'nombre_nodo':'Nodo C', 'ip':'localhost', 'puerto':5202}
     ],
     'debug':False
     },

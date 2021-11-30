@@ -110,11 +110,10 @@ class Nodo:
         for vecinos in lista_nodos_aux:
             ip_v = vecinos['ip']
             puerto_v = vecinos['puerto']
-            formato_solicitud = HttpSolicitud.establecer_formato_diccionario(lista_nodos_aux,self.direccion_ip,self.puerto)
+            formato_solicitud = HttpSolicitud.establecer_formato_diccionario(lista_nodos_aux,self.direccion_ip,self.puerto, self.calcular_identificador_de_solicitud())
             print('FORMATO', formato_solicitud)
             solicitud_servicio = HttpSolicitud.consumir_servicio(ip_v, puerto_v,datos_solicitud=formato_solicitud)
-            suma_total_vecinos += int(solicitud_servicio['suma_total'])
-        
+            suma_total_vecinos += int(solicitud_servicio['suma_total']) #implementar como actuar si estado solicitud es falso
         return suma_total_vecinos
              
     def filtrar_nodos_solicitados(self, lista_vecinos_confirmados:list, origen):
@@ -197,7 +196,8 @@ class Nodo:
         :returns: None
         :rtype: None
         '''
-        self.peticiones_con_respuesta.append(identificador_solicitud)
+        if not identificador_solicitud == '':
+            self.peticiones_con_respuesta.append(identificador_solicitud)
         
     def buscar_peticion(self, identificador:str = ''):
         '''

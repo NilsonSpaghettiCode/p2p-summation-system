@@ -46,7 +46,7 @@ class Controlador:
         '''
         peticion_encontrada = nodo.buscar_peticion(identificador_solicitud)
         if not peticion_encontrada:
-            nodo.agregar_solicitud_con_respuesta(identificador_solicitud)
+            nodo.master_actual = identificador_solicitud
         
         return peticion_encontrada            
         

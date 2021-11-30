@@ -37,10 +37,11 @@ def sumar_red():
     identificador_nodo_solicitud = parametro['identificador_solicitud']
     respuesta = {}
     
-    if(not controlador.validar_solicitud(identificador_nodo_solicitud, nodo)):
+    if not controlador.validar_solicitud(identificador_nodo_solicitud, nodo):
         respuesta = controlador.obtener_suma(nodo, lista_vecinos_confirmados,origen)
         suma_r = respuesta['suma_total']
         respuesta = {'estado_solicitud':True, 'suma_total':suma_r}
+        nodo.agregar_solicitud_con_respuesta(identificador_nodo_solicitud)
     else:
         respuesta = {'estado_solicitud':False, 'suma_total':0}
 
@@ -50,7 +51,7 @@ def sumar_red():
 def anadir_numero():
     '''
     Implementar servicio
-    //print(request)
+    print(request)
     '''
     respuesta = {}
     try:

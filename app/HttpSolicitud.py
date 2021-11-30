@@ -18,7 +18,7 @@ class HttpSolicitud:
         '''
         pass
     @staticmethod
-    def establecer_formato_diccionario(lista_nodos_solicitados:list = [], origen:str='0.0.0.0', puerto:int = 5200):
+    def establecer_formato_diccionario(lista_nodos_solicitados:list = [], origen:str='0.0.0.0', puerto:int = 5200, identificador_solicitud:str = ''):
         '''
         Esta función le establece un formato a las peticiones realizadas al nodo
 
@@ -32,7 +32,8 @@ class HttpSolicitud:
         
         data = {
             'nodos_sumados':lista_nodos_solicitados, #[{'nombre': 'Nodo A', 'direccion': '127.0.0.1'}]
-            'origen_peticion': f'{origen}:{puerto}'
+            'origen_peticion': f'{origen}:{puerto}',
+            'identificador_solicitud': identificador_solicitud
             }
 
         return json.dumps(data)

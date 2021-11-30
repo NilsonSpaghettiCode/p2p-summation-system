@@ -30,13 +30,18 @@ def sumar_red():
     Implementar servicio
     '''
     
-    print("Entrada",request.json)
+    #print("Entrada",request.json)
     parametro = dict(request.json)
     lista_vecinos_confirmados = list(parametro['nodos_sumados'])
     origen = parametro['origen_peticion']
     identificador_nodo_solicitud = parametro['identificador_solicitud']
     respuesta = {}
     
+    if identificador_nodo_solicitud == '':
+        nodo.es_master = True
+    else:
+        nodo.master_actual = identificador_nodo_solicitud
+
     if not controlador.validar_solicitud(identificador_nodo_solicitud, nodo):
         respuesta = controlador.obtener_suma(nodo, lista_vecinos_confirmados,origen)
         suma_r = respuesta['suma_total']
@@ -44,7 +49,7 @@ def sumar_red():
         nodo.agregar_solicitud_con_respuesta(identificador_nodo_solicitud)
     else:
         respuesta = {'estado_solicitud':False, 'suma_total':0}
-
+    nodo.es_master = False
     return respuesta
 
 @app.route('/guardar_numero', methods=['POST'])
@@ -67,14 +72,16 @@ def establecer_nodo(lista_nodos_vecinos,  ip, nombre, nodo_hash, port):
     '''
     Esta funcion establece los parametros para iniciar el nodo
 
-    :param name:
-    :type name:
-    :param name:
-    :type name:
-    :param name:
-    :type name:
-    :param name:
-    :type name:
+    :param lista_nodos_vecinos:
+    :type lista_nodos_vecinos:
+    :param ip:
+    :type ip:
+    :param nombre:
+    :type nombre:
+    :param nodo_hash:
+    :type nodo_hash:
+    :param port:
+    :type port:
     '''
     nodo.lista_nodos_vecinos = lista_nodos_vecinos
     nodo.direccion_ip = ip

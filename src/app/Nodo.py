@@ -38,6 +38,7 @@ class Nodo:
         self.puerto = puerto
         self.peticiones_con_respuesta = []
         self.master_actual = ""
+        self.es_master = False
     
     def __str__(self):
         '''
@@ -83,8 +84,8 @@ class Nodo:
         suma_total_vecinos = 0
         if self.lista_nodos_vecinos: #Si no esta vacia (si sí tiene vecinos)
             lista_auxiliar = self.filtrar_nodos_solicitados(lista_vecinos_confirmados, origen)
-            print("Lista auxiliar:", lista_auxiliar)
-            suma_total_vecinos = self.pedir_suma_vecinos(lista_auxiliar)
+            #print("Lista auxiliar:", lista_auxiliar)
+            suma_total_vecinos = self.pedir_suma_vecinos(lista_auxiliar, lista_vecinos_confirmados)
             
         suma_total = suma_nodo_actual + suma_total_vecinos
         '''
@@ -105,32 +106,51 @@ class Nodo:
         '''         
         return suma_total
     
-    def pedir_suma_vecinos(self, lista_nodos_aux):
+    def pedir_suma_vecinos(self, lista_nodos_aux, lista_vecinos_confirmados):
         suma_total_vecinos = 0
+        lista_sumada_con_filtro = []
+        lista_sumada_con_filtro.extend(lista_nodos_aux)
+        lista_sumada_con_filtro.extend(lista_vecinos_confirmados)
+        #print("Lista a enviar a vecinos:", lista_sumada_con_filtro)
+        formato_solicitud = self.obtener_formato_solicitud_suma(lista_sumada_con_filtro)
+        #print("Formato generado:" , formato_solicitud)
         for vecinos in lista_nodos_aux:
             ip_v = vecinos['ip']
             puerto_v = vecinos['puerto']
-            formato_solicitud = HttpSolicitud.establecer_formato_diccionario(lista_nodos_aux,self.direccion_ip,self.puerto, self.calcular_identificador_de_solicitud())
-            print('FORMATO', formato_solicitud)
+            
+            #print('FORMATO', formato_solicitud)
+
             solicitud_servicio = HttpSolicitud.consumir_servicio(ip_v, puerto_v,datos_solicitud=formato_solicitud)
+            #print("Solicitud enviada a ->",ip_v)
             suma_total_vecinos += int(solicitud_servicio['suma_total']) #implementar como actuar si estado solicitud es falso
         return suma_total_vecinos
-             
+
+    def obtener_formato_solicitud_suma(self, lista_nodos_aux):
+        formato_solicitud = {}
+        if self.es_master:
+            identificador_master = self.calcular_identificador_de_solicitud()
+            formato_solicitud = HttpSolicitud.establecer_formato_diccionario(lista_nodos_aux,self.direccion_ip,self.puerto, identificador_master)
+        else:
+            formato_solicitud = HttpSolicitud.establecer_formato_diccionario(lista_nodos_aux,self.direccion_ip,self.puerto, self.master_actual)
+        
+        return formato_solicitud
+                  
     def filtrar_nodos_solicitados(self, lista_vecinos_confirmados:list, origen):
         '''
         '''
+        #print("Lista de llegada", lista_vecinos_confirmados)
         lista_auxiliar = [] 
         for vecino_del_nodo_actual in self.lista_nodos_vecinos: #1 [1,2,3,4] 
             direccion_ip_nodo_actual = f'{vecino_del_nodo_actual["ip"]}:{vecino_del_nodo_actual["puerto"]}'
-            print(self.lista_nodos_vecinos)
+            #print(self.lista_nodos_vecinos)
 
             if not direccion_ip_nodo_actual == origen: # 3
                 
                 nodo_esta_repetido = False
                 for vecinos_nodo_peticion in lista_vecinos_confirmados: #[2,4,1]
-                    print(lista_vecinos_confirmados)
+                   #print(lista_vecinos_confirmados)
                     
-                    print(vecinos_nodo_peticion)
+                   #print(vecinos_nodo_peticion)
                     direccion_ip_nodo_perticionario = f'{vecinos_nodo_peticion["ip"]}:{vecinos_nodo_peticion["puerto"]}'
                     
                     if direccion_ip_nodo_actual == direccion_ip_nodo_perticionario or direccion_ip_nodo_perticionario == self.direccion_ip:
@@ -198,6 +218,7 @@ class Nodo:
         '''
         if not identificador_solicitud == '':
             self.peticiones_con_respuesta.append(identificador_solicitud)
+        
         
     def buscar_peticion(self, identificador:str = ''):
         '''

@@ -50,7 +50,7 @@ class HttpSolicitud:
         :rtype: json
         '''
         uri=f'http://{direccion_ip}:{puerto}/suma_de_red'
-        print(uri)
+        #print(uri)
         respuestaJSON = {}
         try:
             datos_respuesta = requests.request(method='POST', url=uri, headers={'Content-Type': 'application/json'},data=datos_solicitud)

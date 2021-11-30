@@ -3,7 +3,7 @@ Archivo config
 --------------
 Este modulo contiene la configuración del nodo
 '''
-config_numero = 3
+config_numero = 0
 
 config_nodos= [{
     'nombre_nodo':'Nodo A',

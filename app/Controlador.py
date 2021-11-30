@@ -33,4 +33,20 @@ class Controlador:
         respuesta = {'suma_total': suma_nodo_actual}
         
         return respuesta
+    
+    def validar_solicitud(self, identificador_solicitud:str, nodo:Nodo):
+        '''
+        Este metodo valida el identificador de la solicitud para conocer si la peticion ya ha sido
+        realizada, y sino procede a realizarla añadiendo el identificador a la lista de solicitudes
+
+        :param identificador_solicitud: id obtenido de request
+        :type identificador_solicitud: str
+        :param nodo: Nodo representativo en al red
+        :type nodo: Nodo
+        '''
+        peticion_encontrada = nodo.buscar_peticion(identificador_solicitud)
+        if not peticion_encontrada:
+            nodo.agregar_solicitud_con_respuesta(identificador_solicitud)
+        
+        return peticion_encontrada            
         

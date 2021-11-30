@@ -5,8 +5,8 @@ Este modulo contiene toda la informacion requerida para cada nodo
 del sistema de iguales a iguales (peer to peer)
 '''
 
-from pickle import NONE
 from .HttpSolicitud import HttpSolicitud 
+from ..config.funciones_config import obtener_tiempo, generar_hash_solicitud
 class Nodo:
     '''
     La clase nodo, es el objeto que describe la informacion
@@ -36,6 +36,8 @@ class Nodo:
         self.lista_nodos_vecinos = lista_nodos_vecinos
         self.estado=1
         self.puerto = puerto
+        self.peticiones_con_respuesta = []
+        self.master_actual = ""
     
     def __str__(self):
         '''
@@ -79,7 +81,7 @@ class Nodo:
         
         suma_nodo_actual = self.obtener_suma_nodal()
         suma_total_vecinos = 0
-        if self.lista_nodos_vecinos: #Si no esta vacia
+        if self.lista_nodos_vecinos: #Si no esta vacia (si sí tiene vecinos)
             lista_auxiliar = self.filtrar_nodos_solicitados(lista_vecinos_confirmados, origen)
             print("Lista auxiliar:", lista_auxiliar)
             suma_total_vecinos = self.pedir_suma_vecinos(lista_auxiliar)
@@ -175,3 +177,41 @@ class Nodo:
         self.lista_nodos_vecinos = nodos_vecinos
     
     
+    def calcular_identificador_de_solicitud(self):
+        '''
+        Este método crea el identificador de las solicitudes para
+        definir un master    
+        '''
+        tiempo = obtener_tiempo()
+        identificador = generar_hash_solicitud(self.nombre, self.direccion_ip, tiempo)
+
+        return identificador
+
+    
+    def agregar_solicitud_con_respuesta(self, identificador_solicitud:str):
+        '''
+        Agrega el identificador de una solicitud a la cual se le dio respuesta
+
+        :param identificador_solicitud: Identificador de una solicitud con respuesta
+        :type identificador_solicitud: str
+        :returns: None
+        :rtype: None
+        '''
+        self.peticiones_con_respuesta.append(identificador_solicitud)
+        
+    def buscar_peticion(self, identificador:str = ''):
+        '''
+        Este metodo busca la peticion que llega por un nodo en la lista de peticiones
+
+        :param identificador_solicitud: Identificador obtenido de la request
+        :type identificador_solicitud:
+        '''
+        
+        peticion_en_lista = False
+
+        for peticion in self.peticiones_con_respuesta:
+            if peticion == identificador:
+                peticion_en_lista = True 
+                break
+        
+        return peticion_en_lista

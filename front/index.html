@@ -36,14 +36,14 @@
     <div class="flex mb-4 space-x-5">
         <div class="w-1/2 h-12">
             <div class="flex justify-end bg">
-                <form class="w-full max-w-lg bg-gray-100 pt-4 pr-4 pb-4 pl-4 rounded md:rounded-lg">
+                <div class="w-full max-w-lg bg-gray-100 pt-4 pr-4 pb-4 pl-4 rounded md:rounded-lg">
                     <div class="flex flex-wrap -mx-2 mb-6">
                         <div class="w-full md:w-1/1 px-2 mb-6 md:mb-0 text-center">
                             <br>
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                 Please, type the node's number you want to work with
                             </label>
-                            <input
+                            <input id="nodo"
                                 class="hvr-bounce-out hvr-bounce-out:hover appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 content-center text-center"
                                 type="text" placeholder="Node">
                         </div>
@@ -55,13 +55,13 @@
                             </label>
                             <input
                                 class="hvr-bounce-out appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 content-center text-center"
-                                type="text" placeholder="Number">
+                                type="text" placeholder="Number" id="number">
                         </div>
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
 
                         <div class="w-full md:w-1/2 px-2 mb-6 md:mb-0 text-center">
-                            <button
+                            <button id="add_number"
                                 class="hvr-grow bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 border-b-4 border-gray-700 hover:border-gray-500 rounded">
                                 Add Number
                             </button>
@@ -69,7 +69,7 @@
                         </div>
 
                         <div class="w-full md:w-1/2 px-2 mb-6 md:mb-0 text-center">
-                            <button
+                            <button id="sum_network"
                                 class="hvr-grow bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 border-b-4 border-gray-700 hover:border-gray-500 rounded">
                                 Sum node network
                             </button>
@@ -125,20 +125,20 @@
                                 <tr class="sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
                                     <td class="hover:bg-gray-200 px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         Total Sum</td>
-                                    <td class="hover:bg-gray-200 px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <td id="total_sum" class="hover:bg-gray-200 px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         999</td>
                                 </tr>
                             </table>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
 
 
         <div class="w-1/2 h-12">
             <div class="flex justify-start">
-                <form class="w-full max-w-lg bg-gray-100 pt-6 pr-6 pb-5 pl-6 rounded md:rounded-lg">
+                <div class="w-full max-w-lg bg-gray-100 pt-6 pr-6 pb-5 pl-6 rounded md:rounded-lg">
 
                     <div class="flex flex-wrap -mx-3 mb-6">
 
@@ -155,7 +155,7 @@
                         </div>
 
                         <div class="w-full md:w-3/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
-                            <button
+                            <button id="nodo_a"
                                 class="w-full hvr-grow bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 border-b-4 border-gray-700 hover:border-gray-500 rounded">
                                 Node 1
                             </button>
@@ -176,7 +176,7 @@
                         </div>
 
                         <div class="w-full md:w-3/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
-                            <button
+                            <button id="nodo_b"
                                 class="w-full hvr-grow bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 border-b-4 border-gray-700 hover:border-gray-500 rounded">
                                 Node 2
                             </button>
@@ -197,7 +197,7 @@
                         </div>
 
                         <div class="w-full md:w-3/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
-                            <button
+                            <button id="nodo_c"
                                 class="w-full hvr-grow bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 border-b-4 border-gray-700 hover:border-gray-500 rounded">
                                 Node 3
                             </button>
@@ -218,7 +218,7 @@
                         </div>
 
                         <div class="w-full md:w-3/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
-                            <button
+                            <button id="nodo_d"
                                 class="w-full hvr-grow bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 border-b-4 border-gray-700 hover:border-gray-500 rounded">
                                 Node 4
                             </button>
@@ -270,7 +270,7 @@
                         </div>
                     </div>
 
-                </form>
+                </div>
             </div>
 
 
@@ -282,37 +282,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <script type="module" src="js/script.js"></script>
 
 
 </body>

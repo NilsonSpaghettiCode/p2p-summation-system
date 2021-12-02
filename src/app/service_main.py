@@ -7,27 +7,45 @@ para el funcionamiento de la aplicacion
 
 from flask import Flask, request
 from flask.json import jsonify
+from flask_cors import CORS, cross_origin
+
 from werkzeug.exceptions import BadRequestKeyError
 from .Nodo import Nodo
 from .Controlador import Controlador
 app = Flask(__name__)
+cors = CORS(app)
+
 nodo = Nodo()
 controlador = Controlador()
 
+app.config['CORS_HEADER'] = 'Content-Type'
+
 # <--------------------------- Servicios publicados --------------------------->
 
-@app.route('/')
+@cross_origin()
+@app.route('/', methods=['GET'])
 def informacion_nodo():
     '''
-    Implementar servicio
+    Este servicio permite conocer la informacion del nodo
+
+    .. parsed-literal::
+        # añadir numero
+        curl http://direccion:puerto/
+
     '''
     return jsonify(nodo.__dict__)
 
+@cross_origin()
 @app.route('/suma_de_red', methods=['POST'])
 def sumar_red():
 
     '''
-    Implementar servicio
+    Este servicio permite sumar la red de nodos
+
+    .. parsed-literal::
+        # añadir numero
+        curl http://direccion:puerto/suma_de_red/
+
     '''
     
     #print("Entrada",request.json)
@@ -52,12 +70,18 @@ def sumar_red():
     nodo.es_master = False
     return respuesta
 
+@cross_origin()
 @app.route('/guardar_numero', methods=['POST'])
 def anadir_numero():
     '''
-    Implementar servicio
-    print(request)
+    Este servicio permite añadir numeros al nodo
+
+    .. parsed-literal::
+        # añadir numero
+        curl http://direccion:puerto/guardar_numero/
+
     '''
+    print(request.form)
     respuesta = {}
     try:
         numero = request.form['numero']

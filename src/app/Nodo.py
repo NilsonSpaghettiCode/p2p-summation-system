@@ -79,6 +79,17 @@ class Nodo:
         return suma
 
     def obtener_suma_red(self, lista_vecinos_confirmados, origen):
+        '''
+        Este metodo realiza toda la logica para obtener la suma de la red
+        utilizando los atributos del nodo
+
+        :param lista_vecinos_confirmados: la lista de vecinos que ya han recibido la solicitud
+        :type lista_vecinos_confirmados: list
+        :param origen: La direccion de donde provino la solicitud
+        :type origen: str
+        :returns: la suma de los nodos
+        :rtype: dict
+        '''
         
         suma_nodo_actual = self.obtener_suma_nodal()
         suma_total_vecinos = 0
@@ -107,6 +118,16 @@ class Nodo:
         return suma_total
     
     def pedir_suma_vecinos(self, lista_nodos_aux, lista_vecinos_confirmados):
+        '''
+        Este metodo solicita la suma a los nodos vecinos
+
+        :param lista_nodos_aux: la lista de nodos que ya han recibido una peticion por el nodo anterior
+        :type lista_nodos_aux: list
+        :param lista_vecinos_confirmados: la lista de vecinos que ya confirmaron la peticion
+        :type lista_vecinos_confirmados: list
+        :returns: la suma total de los vecinos del nodo
+        :rtype: int
+        '''
         suma_total_vecinos = 0
         lista_sumada_con_filtro = []
         lista_sumada_con_filtro.extend(lista_nodos_aux)
@@ -126,6 +147,14 @@ class Nodo:
         return suma_total_vecinos
 
     def obtener_formato_solicitud_suma(self, lista_nodos_aux):
+        '''
+        Este metodo obtiene el formato de la suma de los nodos
+
+        :param lista_nodos_aux: la lista de nodos que ya han recibido una peticion por el nodo anterior
+        :type lista_nodos_aux: list
+        :returns: el formato de la suma
+        :rtype: dict
+        '''
         formato_solicitud = {}
         if self.es_master:
             identificador_master = self.calcular_identificador_de_solicitud()
@@ -137,6 +166,14 @@ class Nodo:
                   
     def filtrar_nodos_solicitados(self, lista_vecinos_confirmados:list, origen):
         '''
+        Este metodo permite filtrar los nodos que ya han sido solicitados
+
+        :param lista_vecinos_confirmados: la lista de los vecinos que ya han sido confirmados
+        :type lista_vecinos_confirmados: list
+        :param origen: el origen de la peticion 
+        :type origen: str
+        :returns: la lista auxiliar con los nodos filtrados
+        :rtype: list
         '''
         #print("Lista de llegada", lista_vecinos_confirmados)
         lista_auxiliar = [] 
@@ -199,7 +236,10 @@ class Nodo:
     def calcular_identificador_de_solicitud(self):
         '''
         Este método crea el identificador de las solicitudes para
-        definir un master    
+        definir un master
+
+        :returns: el hash de la solicitud
+        :rtype: str   
         '''
         tiempo = funciones_config.obtener_tiempo()
         identificador = funciones_config.generar_hash_solicitud(self.nombre, self.direccion_ip, tiempo)
@@ -225,7 +265,7 @@ class Nodo:
         Este metodo busca la peticion que llega por un nodo en la lista de peticiones
 
         :param identificador_solicitud: Identificador obtenido de la request
-        :type identificador_solicitud:
+        :type identificador_solicitud: str
         '''
         
         peticion_en_lista = False

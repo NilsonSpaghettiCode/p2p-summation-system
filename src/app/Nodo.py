@@ -95,13 +95,19 @@ class Nodo:
         '''
         
         suma_nodo_actual = self.obtener_suma_nodal()
-        suma_total_vecinos = 0
+        #lista_nodos_suma = [{self.nombre:self.obtener_suma_nodal()}]
+        suma_total_vecinos = {}
         if self.lista_nodos_vecinos: #Si no esta vacia (si sí tiene vecinos)
             lista_auxiliar = self.filtrar_nodos_solicitados(lista_vecinos_confirmados, origen)
             #print("Lista auxiliar:", lista_auxiliar)
             suma_total_vecinos = self.pedir_suma_vecinos(lista_auxiliar, lista_vecinos_confirmados)
+
             
-        suma_total = suma_nodo_actual + suma_total_vecinos
+        suma_total = suma_nodo_actual + suma_total_vecinos['suma_total']
+        nueva_lista_nodos_suma = []
+        nueva_lista_nodos_suma.extend(suma_total_vecinos['nodos_suma'])
+        nueva_lista_nodos_suma.append({self.nombre:suma_nodo_actual})
+        respuesta = {'suma_total':suma_total,'nodos_suma':nueva_lista_nodos_suma}
         '''
         respuesta = {
             'nodos_sumados':[ # {'direccion_ip': '', 'nombre': '', 'suma_nodo' = 0}
@@ -118,7 +124,7 @@ class Nodo:
         for nodo in nodo_vecinos:
             respuesta['suma_total'] += nodo['suma_nodo']
         '''         
-        return suma_total
+        return respuesta
     
     def pedir_suma_vecinos(self, lista_nodos_aux, lista_vecinos_confirmados):
         '''
@@ -129,9 +135,10 @@ class Nodo:
         :param lista_vecinos_confirmados: la lista de vecinos que ya confirmaron la peticion
         :type lista_vecinos_confirmados: list
         :returns: la suma total de los vecinos del nodo
-        :rtype: int
+        :rtype: list
         '''
         suma_total_vecinos = 0
+        lista_nodos_suma = []
         lista_sumada_con_filtro = []
         lista_sumada_con_filtro.extend(lista_nodos_aux)
         lista_sumada_con_filtro.extend(lista_vecinos_confirmados)
@@ -147,7 +154,10 @@ class Nodo:
             solicitud_servicio = HttpSolicitud.consumir_servicio(ip_v, puerto_v,datos_solicitud=formato_solicitud)
             #print("Solicitud enviada a ->",ip_v)
             suma_total_vecinos += int(solicitud_servicio['suma_total']) #implementar como actuar si estado solicitud es falso
-        return suma_total_vecinos
+            lista_nodos_suma.extend(solicitud_servicio['nodos_suma']) 
+
+        respuesta= {'suma_total':suma_total_vecinos,'nodos_suma':lista_nodos_suma}
+        return respuesta
 
     def obtener_formato_solicitud_suma(self, lista_nodos_aux):
         '''

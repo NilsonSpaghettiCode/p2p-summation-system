@@ -65,11 +65,13 @@ def sumar_red():
 
     if not controlador.validar_solicitud(identificador_nodo_solicitud, nodo):
         respuesta = controlador.obtener_suma(nodo, lista_vecinos_confirmados,origen)
-        suma_r = respuesta['suma_total']
-        #nodo_actual = [{'nombre':'suma'}]
+        #suma_r = respuesta['suma_total']
+        #nodo_actual = [{nodo.nombre:nodo.obtener_suma_nodal()}]
         #suma_nodo = nodo.obtener_suma_nodal()
+        #nodos_sumas = respuesta['nodos_suma']
+        #nodos_sumas.append(nodo_actual)
 
-        respuesta = {'estado_solicitud':True, 'suma_total':suma_r}
+        #respuesta = {'estado_solicitud':True, 'suma_total':suma_r}
         nodo.agregar_solicitud_con_respuesta(identificador_nodo_solicitud)
     else:
         respuesta = {'estado_solicitud':False, 'suma_total':0}

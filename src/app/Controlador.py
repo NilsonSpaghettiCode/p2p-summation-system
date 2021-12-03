@@ -64,11 +64,11 @@ class Controlador:
         :returns: la respuesta de la suma de los nodos
         :rtype: dict
         '''
-        suma_nodo_actual = nodo.obtener_suma_red(lista_vecinos_confirmados, origen)
+        respuesta = nodo.obtener_suma_red(lista_vecinos_confirmados, origen)
         '''
         suma_vecinos_nodo_actual = nodo
         '''
-        respuesta = {'suma_total': suma_nodo_actual}
+        #respuesta = {'suma_total': suma_nodo_actual, 'nodos_suma':[]} //Revisar!
         
         return respuesta
     

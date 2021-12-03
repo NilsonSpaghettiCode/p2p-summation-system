@@ -105,7 +105,7 @@ const suma_red = () => {
 const mostrar_resultado_suma = (resultado) => {
     table_suma_nodos.style.display = "block"
     etiqueta_suma_total.textContent = resultado['suma_total']
-    etiqueta_suma_a.textContent = resultado['']
+    etiqueta_suma_a.textContent = resultado['nodos_suma']['Nodo A']
     etiqueta_suma_b.textContent = resultado['']
     etiqueta_suma_c.textContent = resultado['']
     etiqueta_suma_d.textContent = resultado['']

@@ -94,6 +94,7 @@ const suma_red = () => {
         "origen_peticion": "",
         "identificador_solicitud": ""
       })
+      JSON.stringify()
 
     consumir_servicio(nodo, endpoints.suma_red.value, raw, endpoints.suma_red.metodos[0], mostrar_resultado_suma, mostrar_resultado_suma_error)
 }
@@ -214,9 +215,14 @@ const generar_requestOptions = (metodo, formdata) => {
     
     if (formdata === "") {
         request_option = { method: metodo, redirect: "follow" }
+    }else if(typeof(formdata)==='string'){ 
+        let header = new Headers()
+        header.append("Content-Type", "application/json")
+        request_option = { method: metodo, headers:header, body: formdata, redirect: "follow" }
     }else{
         request_option = { method: metodo, body: formdata, redirect: "follow" }
     }
+    console.log(request_option)
     return request_option
 }
 

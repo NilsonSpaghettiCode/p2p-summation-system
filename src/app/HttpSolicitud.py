@@ -51,7 +51,7 @@ class HttpSolicitud:
         '''
         uri=f'http://{direccion_ip}:{puerto}/suma_de_red'
         #print(uri)
-        respuestaJSON = {}
+        respuestaJSON = {'suma_total':0}
         try:
             datos_respuesta = requests.request(method='POST', url=uri, headers={'Content-Type': 'application/json'},data=datos_solicitud)
             respuestaJSON = datos_respuesta.json()

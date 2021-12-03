@@ -8,10 +8,17 @@ let numero_nodo = document.getElementById('nodo')
 
 //Etiquetas de total
 const etiqueta_suma_total = document.getElementById('total_sum')
-const etiqueta_suma_a = document.getElementById('suma_nodo_a')
-const etiqueta_suma_b = document.getElementById('suma_nodo_b')
-const etiqueta_suma_c = document.getElementById('suma_nodo_c')
-const etiqueta_suma_d = document.getElementById('suma_nodo_d')
+//nombres de los nodos que traen suma
+const etiqueta_suma_a = document.getElementById('suma_nodo_1')
+const etiqueta_suma_b = document.getElementById('suma_nodo_2')
+const etiqueta_suma_c = document.getElementById('suma_nodo_3')
+const etiqueta_suma_d = document.getElementById('suma_nodo_4')
+
+//Etiquetas individuales de suma
+const label_etiqueta_suma_a = document.getElementById('lb_suma_nodo_1')
+const label_etiqueta_suma_b = document.getElementById('lb_suma_nodo_2')
+const label_etiqueta_suma_c = document.getElementById('lb_suma_nodo_3')
+const label_etiqueta_suma_d = document.getElementById('lb_suma_nodo_4')
 
 //Botones
 const btn_agregar_numero = document.getElementById('add_number')
@@ -102,14 +109,33 @@ const suma_red = () => {
     consumir_servicio(nodo, endpoints.suma_red.value, raw, endpoints.suma_red.metodos[0], mostrar_resultado_suma, mostrar_resultado_suma_error)
 }
 
+const establecer_tabla_respuestas = (label, valor_campo, nombre, valor) =>{
+    label.textContent = nombre
+    valor_campo.textContent = valor
+}
 const mostrar_resultado_suma = (resultado) => {
+    console.log(resultado)
     table_suma_nodos.style.display = "block"
     etiqueta_suma_total.textContent = resultado['suma_total']
-    etiqueta_suma_a.textContent = resultado['nodos_suma']['Nodo A']
-    etiqueta_suma_b.textContent = resultado['']
-    etiqueta_suma_c.textContent = resultado['']
-    etiqueta_suma_d.textContent = resultado['']
-    
+    let nodos_suma = resultado['nodos_suma']
+    console.log(nodos_suma)
+    let i = 1
+    nodos_suma.forEach((nodo_iterador) => {
+        
+        let clave_valor_array = Object.entries(nodo_iterador)[0]
+        let nodo_nombre = clave_valor_array[0]
+        let nodo_valor_suma = clave_valor_array[1]
+
+        //console.log("Nombre"+nodo_nombre)
+        //console.log("Nodo_valor"+nodo_valor_suma)
+
+        let label_dom = document.getElementById(`lb_suma_nodo_${i}`)
+        let valor_dom = document.getElementById(`suma_nodo_${i}`)
+
+        establecer_tabla_respuestas(label_dom, valor_dom, nodo_nombre, nodo_valor_suma)
+        i += 1
+    });
+
 }
 
 const mostrar_resultado_suma_error = (error) => {

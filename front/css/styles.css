@@ -36,3 +36,12 @@
 {
     resize: none;
 }
+
+.select_info_node{
+    display: none;
+}
+
+.result_info_node
+{
+    display: none;
+}

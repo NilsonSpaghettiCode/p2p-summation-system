@@ -20,6 +20,7 @@ controlador = Controlador()
 
 app.config['CORS_HEADER'] = 'Content-Type'
 
+
 # <--------------------------- Servicios publicados --------------------------->
 
 @cross_origin()
@@ -33,6 +34,8 @@ def informacion_nodo():
         curl http://direccion:puerto/
 
     '''
+    nodo.obtener_suma_nodal()
+
     return jsonify(nodo.__dict__)
 
 @cross_origin()

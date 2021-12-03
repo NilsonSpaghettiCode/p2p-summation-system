@@ -45,7 +45,7 @@
                             </label>
                             <input id="nodo"
                                 class="hvr-bounce-out hvr-bounce-out:hover appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 content-center text-center"
-                                type="text" placeholder="Node">
+                                type="number" placeholder="Node">
                         </div>
 
                         <div class="w-full md:w-1/1 px-2 mb-6 md:mb-0 text-center">
@@ -55,7 +55,7 @@
                             </label>
                             <input
                                 class="hvr-bounce-out appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 content-center text-center"
-                                type="text" placeholder="Number" id="number">
+                                type="number" placeholder="Number" id="number">
                         </div>
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
@@ -79,7 +79,7 @@
                     </div>
 
 
-                    <div
+                    <div class="result_info_node" id="current_result"
                         class="w-full md:w-1/1 px-2 mb-6 md:mb-0 text-center bg-gray-300 border-t-4 border-gray-600 rounded md:rounded-lg text-teal-900 px-4 py-3 shadow-md">
 
                         <div class="block w-full">
@@ -150,8 +150,8 @@
                         </div>
 
                         <div class="w-full md:w-1/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
-                            <span
-                                class="flex rounded-full bg-green-300 uppercase px-2 py-1 text-xs font-bold mr-3">Active</span>
+                            <span id="lb_nodo_a"
+                                class="flex rounded-full bg-red-300 uppercase px-2 py-1 text-xs font-bold mr-3">Inactive</span>
                         </div>
 
                         <div class="w-full md:w-3/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
@@ -171,8 +171,8 @@
                         </div>
 
                         <div class="w-full md:w-1/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
-                            <span
-                                class="flex rounded-full bg-green-300 uppercase px-2 py-1 text-xs font-bold mr-3">Active</span>
+                            <span id="lb_nodo_b"
+                                class="flex rounded-full bg-red-300 uppercase px-2 py-1 text-xs font-bold mr-3">Inactive</span>
                         </div>
 
                         <div class="w-full md:w-3/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
@@ -192,8 +192,8 @@
                         </div>
 
                         <div class="w-full md:w-1/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
-                            <span
-                                class="flex rounded-full bg-green-300 uppercase px-2 py-1 text-xs font-bold mr-3">Active</span>
+                            <span id="lb_nodo_c"
+                                class="flex rounded-full bg-red-300 uppercase px-2 py-1 text-xs font-bold mr-3">Inactive</span>
                         </div>
 
                         <div class="w-full md:w-3/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
@@ -213,8 +213,8 @@
                         </div>
 
                         <div class="w-full md:w-1/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
-                            <span
-                                class="flex rounded-full bg-green-300 uppercase px-2 py-1 text-xs font-bold mr-3">Active</span>
+                            <span id="lb_nodo_d"
+                                class="flex rounded-full bg-red-300 uppercase px-2 py-1 text-xs font-bold mr-3">Inactive</span>
                         </div>
 
                         <div class="w-full md:w-3/5 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center">
@@ -226,7 +226,7 @@
                     </div>
 
 
-                    <div
+                    <div class="select_info_node" id="node_info"
                         class="w-full md:w-1/1 px-2 mb-6 md:mb-0 text-center bg-gray-300 border-t-4 border-gray-600 rounded md:rounded-lg text-teal-900 px-4 py-3 shadow-md pb-5">
 
                         <div class="flex flex-wrap w-full justify-center">
@@ -245,9 +245,9 @@
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                     Node's numbers
                                 </label>
-                                <textarea
-                                    class="sm:shadow-lg txt-a appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-100 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 content-center text-center"
-                                    cols="30" rows="3" type="text" placeholder="Node" readonly>1, 2, 3, 4, 5</textarea>
+                                <textarea id="node_current_numbers"
+                                    class="sm:shadow-lg txt-a text-justify appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-100 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 content-center text-center"
+                                        cols="30" rows="3" type="text" placeholder="Node" readonly>1, 2, 3, 4, 5</textarea>
                             </div>
 
                             <div class="w-full md:w-1/1 px-2 mb-6 md:mb-0 text-center">
@@ -255,18 +255,11 @@
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                     Node's current sum
                                 </label>
-                                <textarea
+                                <textarea id="node_current_sum"
                                     class="sm:shadow-lg txt-a appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-100 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 content-center text-center"
                                     cols="30" rows="0" type="text" placeholder="Node" readonly>999</textarea>
                             </div>
-                        </div>
 
-                        <div
-                            class="w-full md:w-1/1 px-2 mb-6 md:mb-0 flex flex-wrap content-center justify-center pt-5">
-                            <button
-                                class="w-full hvr-grow bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 border-b-4 border-gray-700 hover:border-gray-500 rounded">
-                                Restart App
-                            </button>
                         </div>
                     </div>
 

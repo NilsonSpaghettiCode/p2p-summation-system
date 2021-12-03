@@ -39,6 +39,7 @@ class Nodo:
         self.peticiones_con_respuesta = []
         self.master_actual = ""
         self.es_master = False
+        self.suma_nodo = 0
     
     def __str__(self):
         '''
@@ -75,6 +76,8 @@ class Nodo:
         
         for numero in self.lista_numeros:
             suma  += numero 
+
+        self.suma_nodo = suma
 
         return suma
 

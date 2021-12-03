@@ -14,7 +14,7 @@ class Nodo:
     realizar la suma
     '''
     
-    def __init__(self, direccion_ip:str='0.0.0.0', nombre:str = 'nodo-default', identificador_hash:str ='', lista_numeros:list = [50,70], lista_nodos_vecinos:list = [], estado:int=0, puerto:int = 5200):
+    def __init__(self, direccion_ip:str='0.0.0.0', nombre:str = 'nodo-default', identificador_hash:str ='', lista_numeros:list = [], lista_nodos_vecinos:list = [], estado:int=0, puerto:int = 5200):
         '''
         Constructor de la clase nodo
 

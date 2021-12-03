@@ -57,5 +57,5 @@ class HttpSolicitud:
             respuestaJSON = datos_respuesta.json()
         except Exception as error:
             print("ERROR: ",error)
-        print("RESPUESTA JSON: ",respuestaJSON)
+        #print("RESPUESTA JSON: ",respuestaJSON)
         return respuestaJSON

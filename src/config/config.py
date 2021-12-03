@@ -17,7 +17,7 @@ config_nodos= [{
     },
     {
     'nombre_nodo':'Nodo B',
-    'ip_address': 'localhost',
+    'ip_address': '172.18.0.24',
     'port':5201,
     'nodos_conocidos':[
         {'nombre_nodo':'Nodo A', 'ip':'172.18.0.22', 'puerto':5200},
@@ -29,7 +29,7 @@ config_nodos= [{
     
     {
     'nombre_nodo':'Nodo C',
-    'ip_address': 'localhost',
+    'ip_address': '172.18.0.26',
     'port':5202,
     'nodos_conocidos':[
         {'nombre_nodo':'Nodo B', 'ip':'172.18.0.24', 'puerto':5201},
@@ -40,7 +40,7 @@ config_nodos= [{
     },
     {
     'nombre_nodo':'Nodo D',
-    'ip_address': 'localhost',
+    'ip_address': '172.18.0.28',
     'port':5203,
     'nodos_conocidos':[
         {'nombre_nodo':'Nodo B', 'ip':'172.18.0.24', 'puerto':5201},

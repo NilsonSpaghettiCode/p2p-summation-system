@@ -4,6 +4,7 @@ Clase Nodo
 Este modulo contiene toda la informacion requerida para cada nodo
 del sistema de iguales a iguales (peer to peer)
 '''
+
 from .HttpSolicitud import HttpSolicitud 
 from ..config import funciones_config
 
@@ -279,6 +280,8 @@ class Nodo:
 
         :param identificador_solicitud: Identificador obtenido de la request
         :type identificador_solicitud: str
+        :returns: un boolean si encuentra la solicitud
+        :rtype: bool
         '''
         
         peticion_en_lista = False

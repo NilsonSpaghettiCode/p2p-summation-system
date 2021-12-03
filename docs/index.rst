@@ -98,6 +98,7 @@ Figura de ejemplo corriendo un script de python: python nombre_componente.py
    HttpSolicitud
    Nodo
    service_main
+   funciones_config
 
 Indices and tables
 ==================

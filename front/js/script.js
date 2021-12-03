@@ -8,6 +8,10 @@ let numero_nodo = document.getElementById('nodo')
 
 //Etiquetas de total
 const etiqueta_suma_total = document.getElementById('total_sum')
+const etiqueta_suma_a = document.getElementById('suma_nodo_a')
+const etiqueta_suma_b = document.getElementById('suma_nodo_b')
+const etiqueta_suma_c = document.getElementById('suma_nodo_c')
+const etiqueta_suma_d = document.getElementById('suma_nodo_d')
 
 //Botones
 const btn_agregar_numero = document.getElementById('add_number')
@@ -45,7 +49,6 @@ btn_agregar_numero.addEventListener("click", (e) => {
 })
 
 btn_suma_total.addEventListener("click", (e) => {
-    console.log("Holaaaaa banda")
     let numero_parsed = parseInt(numero_nodo.value)
     if (!isNaN(numero_parsed)) {
         establecer_nodo(numero_nodo.value)
@@ -99,8 +102,14 @@ const suma_red = () => {
     consumir_servicio(nodo, endpoints.suma_red.value, raw, endpoints.suma_red.metodos[0], mostrar_resultado_suma, mostrar_resultado_suma_error)
 }
 
-const mostrar_resultado_suma = () => {
+const mostrar_resultado_suma = (resultado) => {
     table_suma_nodos.style.display = "block"
+    etiqueta_suma_total.textContent = resultado['suma_total']
+    etiqueta_suma_a.textContent = resultado['']
+    etiqueta_suma_b.textContent = resultado['']
+    etiqueta_suma_c.textContent = resultado['']
+    etiqueta_suma_d.textContent = resultado['']
+    
 }
 
 const mostrar_resultado_suma_error = (error) => {

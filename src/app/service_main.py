@@ -74,7 +74,7 @@ def sumar_red():
         #respuesta = {'estado_solicitud':True, 'suma_total':suma_r}
         nodo.agregar_solicitud_con_respuesta(identificador_nodo_solicitud)
     else:
-        respuesta = {'estado_solicitud':False, 'suma_total':0}
+        respuesta = {'estado_solicitud':False, 'suma_total':0, 'nodos_suma':[]}
     nodo.es_master = False
     return respuesta
 

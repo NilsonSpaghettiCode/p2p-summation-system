@@ -4,8 +4,8 @@ Archivo de Configuración
 export const config ={
     "Nodo_A":{"ip_direccion":"localhost:5200","estado":false},
     "Nodo_B":{"ip_direccion":"localhost:5201","estado":false},
-    "Nodo_C":{"ip_direccion":"0.0.0.0:5202","estado":false},
-    "Nodo_D":{"ip_direccion":"0.0.0.0:5203","estado":false}   
+    "Nodo_C":{"ip_direccion":"localhost:5202","estado":false},
+    "Nodo_D":{"ip_direccion":"localhost:5203","estado":false}   
 }
 export const endpoints = {
     "agregar_numero":{"value":"/guardar_numero", "metodos":['POST']},

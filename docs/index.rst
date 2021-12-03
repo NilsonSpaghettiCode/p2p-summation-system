@@ -10,7 +10,10 @@ Welcome to P2P-Summation-System's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   modules
+   Controlador
+   HttpSolicitud
+   Nodo
+   service_main
 
 Indices and tables
 ==================

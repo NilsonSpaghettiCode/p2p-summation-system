@@ -12,8 +12,7 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../src/app'))
-sys.path.insert(0, os.path.abspath('../src/config'))
+sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 

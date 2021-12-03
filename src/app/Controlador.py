@@ -4,6 +4,7 @@ Clase Controlador
 Esta clase contiene toda la logica de la aplicacion, utilizando los 
 metodos publicados por las otras clases para realizar todos los procedimientos
 '''
+
 from .Nodo import Nodo
 
 

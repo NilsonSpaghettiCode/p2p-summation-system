@@ -104,16 +104,16 @@ def establecer_nodo(lista_nodos_vecinos,  ip, nombre, nodo_hash, port):
     '''
     Esta funcion establece los parametros para iniciar el nodo
 
-    :param lista_nodos_vecinos:
-    :type lista_nodos_vecinos:
-    :param ip:
-    :type ip:
-    :param nombre:
-    :type nombre:
-    :param nodo_hash:
-    :type nodo_hash:
-    :param port:
-    :type port:
+    :param lista_nodos_vecinos: la lista de nodos vecinos del nodo
+    :type lista_nodos_vecinos: list
+    :param ip: la direccion ip del nodo
+    :type ip: str
+    :param nombre: el nombre del nodo
+    :type nombre: str
+    :param nodo_hash: el hash identificador del nodo
+    :type nodo_hash: str
+    :param port: el puerto del nodo
+    :type port: int
     '''
     nodo.lista_nodos_vecinos = lista_nodos_vecinos
     nodo.direccion_ip = ip

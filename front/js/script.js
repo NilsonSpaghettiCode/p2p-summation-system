@@ -139,12 +139,9 @@ const mostrar_resultado_suma = (resultado) => {
 }
 
 const mostrar_resultado_suma_error = (error) => {
-    alert('Error: '+error)
+    //alert('Error: '+error)
     table_suma_nodos.style.display = "none"
-}
-
-const obtener_nodo = () => {
-
+    error_solicitud()
 }
 
 const cambiar_estados_nodos = (id, color, estado) => {

@@ -6,6 +6,6 @@ Para generar el archivo html con la documentación es necesario:
 
 1. Tener un entorno virtual de python
 2. Instalar todas las librerías presentes en el archivo requeriments.txt
-3. Acceder desde una terminal con el entorno activado, a la carpeta docs
+3. Acceder desde una terminal con el entorno activado a la carpeta docs
 4. Insertar el siguiente comando "make html"
 5. Los archivos html generados se encuentran en la carpeta _build/html
